@@ -1,8 +1,15 @@
 import express from 'express';
 import helmet from 'helmet';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+
+//Connect Mongo
+import mongoClient from './config/db.js';
+mongoClient();
 
 //middlewares
 app.use(helmet());
